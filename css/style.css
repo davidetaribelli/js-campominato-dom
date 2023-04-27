@@ -50,12 +50,20 @@ main {
     background-color: #50c878;
 }
 
-.container{
+.container, .text{
     margin: 0 auto;
     width: 700px;
+}
+
+.container{
     height: 700px;
     display: flex;
     flex-wrap: wrap;
+}
+
+.text{
+    text-align: center;
+    padding: 3rem;
 }
 
 .square{

@@ -2,6 +2,7 @@
 const gridElement = document.querySelector(".container");
 const btnPlay = document.querySelector(".play");
 const option = document.querySelector("#option");
+let text = document.querySelector(".text");
 let numSquare = [];
 let bomba = [];
 
@@ -40,8 +41,28 @@ function play (box){
         
         newSquare.addEventListener("click", function() {
             numSquare.push(this.innerHTML);
+            console.log("le caselle cliccate sono:", numSquare)
+            let x = false;
             
-             
+            for (let i = 0; i < bomba.length; i++){
+                const numValid = bomba[i];
+
+                if(numValid == this.innerHTML){
+                    x = true;
+                }
+                
+            }
+
+            if (x == true){
+                newSquare.classList.add("clicked-red");
+                const finish = document.createElement("h3")
+                finish.innerHTML = `Hai perso il tuo punteggio è di: ${numSquare.length - 1}`;
+                text.appendChild(finish);
+                
+            } 
+
+                newSquare.classList.add("clicked");
+            
         });
         
     }         
@@ -52,15 +73,12 @@ function gen (num){
 
     for (let i = 1; i <= 16; i++){
         let numGen = Math.floor(Math.random() * num + 1);
-
-        if (numGen == numGen){
-            for (let i = 1; i <= 16; i++){
-                numGen = Math.floor(Math.random() * num +1);
-            }
+        if (!bomba.includes(numGen)){
+            
+            bomba.push(numGen);    
+        } else{
+            i -= 1;
         }
-        bomba.push(numGen);
-
-        
     }
 
 }
