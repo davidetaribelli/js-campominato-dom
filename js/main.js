@@ -3,18 +3,20 @@ const gridElement = document.querySelector(".container");
 const btnPlay = document.querySelector(".play");
 const option = document.querySelector("#option");
 let numSquare = [];
-let numArray = [];
+let bomba = [];
 
 // AL CLICK DEL BOTTTONE PLAY MI AGGIUNGE UNA STRINGA VUOTA AL CONTAINER
 btnPlay.addEventListener("click", function(){
     gridElement.innerHTML="";        
     // IN BASE ALL'OPZIONE SCELTA MI VA A MODIDIFICARE IL "BOX" DELLA FUNZIONE           
-    let optionEl = option.value;      
+    let optionEl = option.value; 
+    gen(optionEl);     
     play(optionEl);
-    gen(optionEl);
-
+    
+    
+    console.log(bomba);
     console.log(numSquare);
-    console.log(numArray);
+    
 }); 
 
 
@@ -34,21 +36,14 @@ function play (box){
         newSquare.classList.add(`s-${box}`);
         newSquare.innerHTML = `${i}`;
         gridElement.appendChild(newSquare);
-        numSquare.push(i);
-
-        if(numArray == numSquare){
-            let squareTot = document.querySelectorAll(".square");
-            squareTot.addEventListener("click", function() {
-                this.classList.add("clicked-red");
-            });
-
-        } else {
-
-            newSquare.addEventListener("click", function() {
-                console.log("La casella selezionata è la numero:", this.innerHTML);
-                this.classList.toggle("clicked");
-            });
-        }
+        
+        
+        newSquare.addEventListener("click", function() {
+            numSquare.push(this.innerHTML);
+            
+             
+        });
+        
     }         
 }
 
@@ -63,7 +58,9 @@ function gen (num){
                 numGen = Math.floor(Math.random() * num +1);
             }
         }
-        numArray.push(numGen);
+        bomba.push(numGen);
+
+        
     }
 
 }
