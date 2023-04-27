@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.box{
+    width: 700px;
+    height: 4rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left{
+    display: flex;
+    align-items: center;
+}
+
+.right{
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    width: 4rem;
+    height: 4rem;
+    display: block;
+}
+
+#option, .play{
+    padding: 0.5em;
+    border-radius: 5px;
+    border-style: none;
+    margin-left: 1em;
+}
+
+.play{
+    cursor: pointer;
+}
+
+
+main {
+    padding: 2rem;
+    background-color: #50c878;
+}
+
+.container{
+    margin: 0 auto;
+    width: 700px;
+    height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: crosshair;
+}
+
+.container, .square{
+    border: 2px white solid;
+}
+
+.square.clicked{
+    background-color: #7FFFD4;
+}
+
+.s-100{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.s-81{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.s-49{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
