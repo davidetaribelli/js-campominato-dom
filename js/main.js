@@ -58,6 +58,10 @@ function play (box){
                 const finish = document.createElement("h3")
                 finish.innerHTML = `Hai perso il tuo punteggio è di: ${numSquare.length - 1}`;
                 text.appendChild(finish);
+                setTimeout(function() {
+                    window.location.reload()
+                  }, 1500);
+                
                 
             } 
 
@@ -83,8 +87,4 @@ function gen (num){
 
 }
 
-// il numero generato casualmente deve coincidere con il numero presente in una cella
-
-// la cella con il numero se schiacciata diventa rossa e la partita finisce
-// in base alle celle senza bomba cliccate dare un punteggio finale
 
