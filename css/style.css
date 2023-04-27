@@ -74,6 +74,10 @@ main {
     background-color: #7FFFD4;
 }
 
+.square.clicked-red{
+    background-color: crimson;
+}
+
 .s-100{
     width: calc(100% / 10);
     height: calc(100% / 10);
