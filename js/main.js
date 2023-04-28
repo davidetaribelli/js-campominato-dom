@@ -5,6 +5,7 @@ const option = document.querySelector("#option");
 let text = document.querySelector(".text");
 let numSquare = [];
 let bomba = [];
+let score = 0;
 
 // AL CLICK DEL BOTTTONE PLAY MI AGGIUNGE UNA STRINGA VUOTA AL CONTAINER
 btnPlay.addEventListener("click", function(){
@@ -37,13 +38,17 @@ function play (box){
         newSquare.classList.add(`s-${box}`);
         newSquare.innerHTML = `${i}`;
         gridElement.appendChild(newSquare);
-        
+
         
         newSquare.addEventListener("click", function() {
-            numSquare.push(this.innerHTML);
-            console.log("le caselle cliccate sono:", numSquare)
+            if (this.innerHTML != numSquare[i]){
+                
+                numSquare.push(this.innerHTML);
+            }
+
             let x = false;
             
+
             for (let i = 0; i < bomba.length; i++){
                 const numValid = bomba[i];
 
@@ -60,13 +65,17 @@ function play (box){
                 text.appendChild(finish);
                 setTimeout(function() {
                     window.location.reload()
-                  }, 1500);
-                
-                
-            } 
-
+                  }, 1500);  
+                    
+            } else {
                 newSquare.classList.add("clicked");
-            
+                newSquare.addEventListener("click", noBomb);
+                newSquare.addEventListener("click", function(){
+                    newSquare.removeEventListener("click", noBomb);
+                })
+
+            }
+            btnPlay.innerText = "NEW GAME";
         });
         
     }         
@@ -85,6 +94,13 @@ function gen (num){
         }
     }
 
+}
+
+
+function noBomb() {
+    this.classList.toggle("clicked")
+    console.log(`hai scelto la casella numero ${this.innerHTML}`)
+    scorePoints++;
 }
 
 
