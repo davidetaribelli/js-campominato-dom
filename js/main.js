@@ -5,16 +5,15 @@ const option = document.querySelector("#option");
 let text = document.querySelector(".text");
 let numSquare = [];
 let bomba = [];
-let score = 0;
 
 // AL CLICK DEL BOTTTONE PLAY MI AGGIUNGE UNA STRINGA VUOTA AL CONTAINER
 btnPlay.addEventListener("click", function(){
     gridElement.innerHTML="";        
     // IN BASE ALL'OPZIONE SCELTA MI VA A MODIDIFICARE IL "BOX" DELLA FUNZIONE           
     let optionEl = option.value; 
-    gen(optionEl);     
+        
     play(optionEl);
-    
+    gen(optionEl); 
     
     console.log(bomba);
     console.log(numSquare);
@@ -38,6 +37,7 @@ function play (box){
         newSquare.classList.add(`s-${box}`);
         newSquare.innerHTML = `${i}`;
         gridElement.appendChild(newSquare);
+        
 
         
         newSquare.addEventListener("click", function() {
@@ -82,6 +82,7 @@ function play (box){
 }
 
 // FUNZIONE CHE MI PERMETTE DI GENERARE 16 NUMERI CASUALI CHE VANNO DA [1-100], [1-81] E [1-49], in base all'opzione
+
 function gen (num){
 
     for (let i = 1; i <= 16; i++){
